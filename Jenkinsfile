@@ -8,5 +8,10 @@ pipeline {
         sh 'mvn clean'
       }
     }
+    stage('Archive') {
+      steps {
+        archiveArtifacts(artifacts: '*.war', onlyIfSuccessful: true)
+      }
+    }
   }
 }
