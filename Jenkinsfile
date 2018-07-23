@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('BuildCode') {
       steps {
-        git(url: 'https://github.com/CJRivas/jenkinspipeline.git', branch: 'master')
+        git(url: 'https://github.com/CJRivas/jenkinspipeline.git', branch: 'master', poll: true)
       }
     }
   }
