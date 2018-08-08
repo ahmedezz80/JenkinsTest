@@ -1,16 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('checkout') {
+    stage('Input_Stage') {
       steps {
-        echo 'Hello World'
-        git(url: 'https://github.com/CJRivas/jenkinspipeline', branch: 'master')
-        sh 'mvn clean'
-      }
-    }
-    stage('Archive') {
-      steps {
-        archiveArtifacts(artifacts: '*.war', onlyIfSuccessful: true)
+        input(message: 'Do you want to continue', id: 'build_id', submitter: 'admin')
       }
     }
   }
